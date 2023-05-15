@@ -1,0 +1,66 @@
+.header {
+    height: 140px;
+    background-color: var(--container-color);
+    border-radius: 20px 20px 0 0;
+    border-bottom: solid 2px var(--line-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px 0 60px;
+}
+
+.header__brand {
+    display: flex;
+     text-decoration: none;
+}
+
+.brand__logo {
+    width: 50px;
+    height: 50px;
+}
+
+.brand__text {
+    margin-left: 20px;
+}
+
+.text__title {
+    font-size: 1.5rem;
+    color: var(--title-text-color);
+}
+
+.text_description {
+    font-size: 1rem;
+    color: var(--description-color);
+}
+
+.header__button {
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 30px;
+    background-color: var(--button-color);
+    display: flex;
+    cursor: pointer;
+}
+.header__button:hover{
+    transition: 0.5s;
+    background-color: var(--button-hover);
+}
+
+.button__price{
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+}
+
+.button__count{
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    border-left: solid 1px var(--line-color);
+    padding-right: 10px;
+}

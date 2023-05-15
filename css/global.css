@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --brand-color: #FFDF8C;
+    --container-color: #FFFFFF;
+    --text-color: #ffffff;
+    --line-color: #F6F6F6;
+    --description-color: #7B7B7B;
+    --button-color: #FE5F1E;
+    --button-hover: #FF8938;
+    --title-text-color: #000000;
+    --baground-color-categories: #F9F9F9;
+    --hover-categories-color: #282828;
+    --sort-text-color: #FE5F1E;
+}
+
+.container{
+    max-width: 1200px;
+    margin: auto;
+}
