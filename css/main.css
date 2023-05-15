@@ -2,3 +2,34 @@
     background-color: var(--container-color);
     padding: 0 40px 0 60px;
 }
+.main__container-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.container-content__pizza-block{
+    width: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
+}
+.pizza-block__image{
+    width: 260px;
+    height: 260px;
+}
+.pizza-block__title{
+    font-size: 1.25rem;
+}
+.pizza-block__block-typeSize{
+    width: 260px;
+    background-color: var(--color-block-typeSize);
+    border-radius: 10px;
+}
+.block-typeSize__type{
+    display: flex;
+    justify-content: space-around;
+}
+.type__settings{
+    list-style: none;
+}

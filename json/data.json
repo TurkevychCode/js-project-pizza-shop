@@ -2,6 +2,7 @@
   {
     "id": 0,
     "title": "Пепероні Фреш з перцем",
+    "image": "./img/products/pepperoni-fresh.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
     "price": 803,
@@ -11,6 +12,7 @@
   {
     "id": 1,
     "title": "Сирна",
+    "image": "./img/products/cheese.jpeg",
     "types": [0],
     "sizes": [26, 40],
     "price": 245,
@@ -20,6 +22,7 @@
   {
     "id": 2,
     "title": "Курча барбекю",
+    "image": "./img/products/barbecue.jpeg",
     "types": [0],
     "sizes": [26, 40],
     "price": 295,
@@ -29,6 +32,7 @@
   {
     "id": 3,
     "title": "Кисло-солодке курча",
+    "image": "./img/products/sweet-and-sour-chicken.jpeg",
     "types": [1],
     "sizes": [26, 30, 40],
     "price": 275,
@@ -38,6 +42,7 @@
   {
     "id": 4,
     "title": "Чізбургер-піца",
+    "image": "./img/products/cheeseburger-pizza.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
     "price": 415,
@@ -47,6 +52,7 @@
   {
     "id": 5,
     "title": "Крейзі пепероні",
+    "image": "./img/products/сrazy-pepperoni.jpeg",
     "types": [0],
     "sizes": [30, 40],
     "price": 580,
@@ -56,6 +62,7 @@
   {
     "id": 6,
     "title": "Пепероні",
+    "image": "./img/products/pepperoni.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
     "price": 675,
@@ -65,6 +72,7 @@
   {
     "id": 7,
     "title": "Маргарита",
+    "image": "./img/products/margarita.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
     "price": 450,
@@ -74,6 +82,7 @@
   {
     "id": 8,
     "title": "Чотири сезони",
+    "image": "./img/products/four-seasons.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
     "price": 395,
@@ -83,6 +92,7 @@
   {
     "id": 9,
     "title": "Овочі та гриби 🌱",
+    "image": "./img/products/vegetables-and-mushrooms.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
     "price": 285,
