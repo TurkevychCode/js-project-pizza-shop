@@ -1,18 +1,24 @@
 .main{
     background-color: var(--container-color);
-    padding: 0 40px 0 60px;
+    padding: 0 40px 30px 60px;
+    margin-bottom: 30px;
+    border-radius: 0 0 20px 20px;
 }
 .main__container-content{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 30px;
 }
 .container-content__pizza-block{
-    width: 260px;
+    margin-top: 40px;
+    width: 280px;
+    height: 500px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     flex-direction: column;
+    justify-content: space-between;
 }
 .pizza-block__image{
     width: 260px;
@@ -22,14 +28,73 @@
     font-size: 1.25rem;
 }
 .pizza-block__block-typeSize{
-    width: 260px;
+    width: 280px;
+    height: 100px;
     background-color: var(--color-block-typeSize);
     border-radius: 10px;
 }
 .block-typeSize__type{
+    height: 50px;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 .type__settings{
     list-style: none;
+    width: 45%;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.type__settings.active{
+    background-color: #FFFFFF;
+    padding: 10px 0 10px 0;
+    border-radius: 10px;
+}
+.block-typeSize__size{
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.size__settings{
+    width: 28%;
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.size__settings.active{
+    background-color: #FFFFFF;
+    padding: 10px 0 10px 0;
+    border-radius: 10px;
+}
+.pizza-block__block-btnPrice{
+    width: 280px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 0 10px;
+}
+.block-btnPrice__price{
+    font-size: 1.37rem;
+    font-weight: 700;
+}
+.block-btnPrice__button{
+    padding: 12px 25px 12px 25px;
+    border-radius: 30px;
+    border: 2px solid #EB5A1E;
+    color: #EB5A1E;
+    cursor: pointer;
+    background-color: var(--baground-button);
+    font-size: 1rem;
+    font-weight: 800;
+}
+.block-btnPrice__button:hover{
+    background-color: #EB5A1E;
+    color: #FFFFFF;
+}
+.button_counter{
+    display: none;
 }

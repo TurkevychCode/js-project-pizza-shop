@@ -17,6 +17,7 @@
     background-color: var(--baground-color-categories);
     padding: 10px 25px 10px 25px;
     border-radius: 40px;
+    cursor: pointer;
 }
 .pizza-categories__type:hover{
     background-color: var(--hover-categories-color);

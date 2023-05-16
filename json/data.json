@@ -5,7 +5,7 @@
     "image": "./img/products/pepperoni-fresh.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 803,
+    "price": 11,
     "category": 0,
     "rating": 4
   },
@@ -15,7 +15,7 @@
     "image": "./img/products/cheese.jpeg",
     "types": [0],
     "sizes": [26, 40],
-    "price": 245,
+    "price": 5,
     "category": 0,
     "rating": 6
   },
@@ -25,7 +25,7 @@
     "image": "./img/products/barbecue.jpeg",
     "types": [0],
     "sizes": [26, 40],
-    "price": 295,
+    "price": 7,
     "category": 1,
     "rating": 4
   },
@@ -35,7 +35,7 @@
     "image": "./img/products/sweet-and-sour-chicken.jpeg",
     "types": [1],
     "sizes": [26, 30, 40],
-    "price": 275,
+    "price": 4,
     "category": 2,
     "rating": 2
   },
@@ -45,7 +45,7 @@
     "image": "./img/products/cheeseburger-pizza.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 415,
+    "price": 6,
     "category": 3,
     "rating": 8
   },
@@ -55,7 +55,7 @@
     "image": "./img/products/сrazy-pepperoni.jpeg",
     "types": [0],
     "sizes": [30, 40],
-    "price": 580,
+    "price": 9,
     "category": 2,
     "rating": 2
   },
@@ -65,7 +65,7 @@
     "image": "./img/products/pepperoni.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 675,
+    "price": 10,
     "category": 1,
     "rating": 9
   },
@@ -75,7 +75,7 @@
     "image": "./img/products/margarita.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 450,
+    "price": 6,
     "category": 4,
     "rating": 10
   },
@@ -85,7 +85,7 @@
     "image": "./img/products/four-seasons.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 395,
+    "price": 5,
     "category": 5,
     "rating": 10
   },
@@ -95,7 +95,7 @@
     "image": "./img/products/vegetables-and-mushrooms.jpeg",
     "types": [0, 1],
     "sizes": [26, 30, 40],
-    "price": 285,
+    "price": 3,
     "category": 5,
     "rating": 7
   }
