@@ -24,13 +24,17 @@
     color: var(--text-color);
     transition: 0.5s;
 }
+.pizza-categories__type.active{
+    background-color: var(--hover-categories-color);
+    color: var(--text-color);
+}
 .categories__sort-block{
     display: flex;
 }
 .sort-block__text{
     font-size: 1.1rem;
 }
-.sort-block-select{
+.sort-block__select{
     appearance: none;
     border: none;
     font-size: 1rem;
