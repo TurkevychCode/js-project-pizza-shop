@@ -2,6 +2,8 @@ import {getData} from "./getData.js";
 
 const typeNames = ['тонка', 'традиційна'];
 const categories = ['Всі', 'Мясні', 'Вегетиріанські', 'Гриль', 'Гострі', 'Закриті'];
+const sortType = ['популярності','ціні','алфавіту'];
+
 let totalCounter = 0;
 let totalPrice = 0;
 let onTotalCounterChange = null;
@@ -10,8 +12,13 @@ let currentCategoryIndex = null;
 (async function () {
     const product = await getData();
     const pizzaContainer = $('.main__container-content');
-    const $categoriesBlock = $('.categories__pizza-categories')
+    const $categoriesBlock = $('.categories__pizza-categories');
+    const $sortBlock = $('.sort-block__select');
 
+    sortType.map(sortName =>{
+        const $sortOption = (`<option value="${sortName}">${sortName}</option>`);
+        $sortBlock.append($sortOption);
+    })
     categories.map((category, index) => {
         const $categoriesList = $(`<li class="pizza-categories__type">${category}</li>`);
         $categoriesBlock.append($categoriesList);
@@ -22,9 +29,10 @@ let currentCategoryIndex = null;
             sortCategory()
         });
     });
-
+  
     function sortCategory() {
         pizzaContainer.empty();
+
         product.map(pizza => {
             if (currentCategoryIndex === null || categories[currentCategoryIndex] === 'Всі' || pizza.category === currentCategoryIndex) {
                 const $pizzaBlock = $('<div class="container-content__pizza-block"></div>');
