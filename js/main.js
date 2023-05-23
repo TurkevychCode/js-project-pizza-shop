@@ -1,4 +1,5 @@
 import {getData} from "./getData.js";
+import {addToBasket} from "./basket.js";
 
 const typeNames = ['тонка', 'традиційна'];
 const categories = ['Всі', 'Мясні', 'Вегетиріанські', 'Гриль', 'Гострі', 'Закриті'];
@@ -8,7 +9,6 @@ let totalCounter = 0;
 let totalPrice = 0;
 let onTotalCounterChange = null;
 let currentCategoryIndex = null;
-
 (async function () {
     const product = await getData();
     const pizzaContainer = $('.main__container-content');
@@ -29,10 +29,9 @@ let currentCategoryIndex = null;
             sortCategory()
         });
     });
-  
+
     function sortCategory() {
         pizzaContainer.empty();
-
         product.map(pizza => {
             if (currentCategoryIndex === null || categories[currentCategoryIndex] === 'Всі' || pizza.category === currentCategoryIndex) {
                 const $pizzaBlock = $('<div class="container-content__pizza-block"></div>');
@@ -67,20 +66,31 @@ let currentCategoryIndex = null;
                     })
                     $pizzaSizes.append($pizzaSize)
                 });
+                if (localStorage.getItem('totalCounter') && localStorage.getItem('totalPrice')) {
+                    totalCounter = parseInt(localStorage.getItem('totalCounter'));
+                    totalPrice = parseInt(localStorage.getItem('totalPrice'));
+
+                    // Оновлення елементів HTML зі значеннями
+                    $('.button__count').text(totalCounter);
+                    $('.button__price').text(totalPrice);
+                }
                 $pizzaButton.on('click', function () {
                     const count = parseInt($pizzaButtonCounter.text());
                     $pizzaButtonCounter.text(count + 1);
                     totalCounter++;
                     totalPrice += pizza.price;
                     $pizzaButtonCounter.show();
-                    if (totalCounter === 3) {
-                        alert('Ви впевнені що зїсте більше?)')
-                    }
+
                     $pizzaButton.text(`Добавити ${$pizzaButtonCounter.text()}`);
+
+                    localStorage.setItem('totalCounter', totalCounter);
+                    localStorage.setItem('totalPrice', `${totalPrice} $`);
+
                     // Викликаю функцію зворотного виклику з оновленим значенням totalCounter
                     if (onTotalCounterChange) {
                         onTotalCounterChange(totalCounter, totalPrice);
                     }
+                    addToBasket(pizza,onTotalCounterChange)
                 })
 
                 $pizzaBlockPrice.append($pizzaPrice, $pizzaButton);
