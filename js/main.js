@@ -3,7 +3,7 @@ import {addToBasket} from "./basket.js";
 
 const typeNames = ['тонка', 'традиційна'];
 const categories = ['Всі', 'Мясні', 'Вегетиріанські', 'Гриль', 'Гострі', 'Закриті'];
-const sortType = ['популярності','ціні','алфавіту'];
+const sortType = ['популярності', 'ціні', 'алфавіту'];
 
 let totalCounter = 0;
 let totalPrice = 0;
@@ -15,7 +15,7 @@ let currentCategoryIndex = null;
     const $categoriesBlock = $('.categories__pizza-categories');
     const $sortBlock = $('.sort-block__select');
 
-    sortType.map(sortName =>{
+    sortType.map(sortName => {
         const $sortOption = (`<option value="${sortName}">${sortName}</option>`);
         $sortBlock.append($sortOption);
     })
@@ -45,7 +45,6 @@ let currentCategoryIndex = null;
                 const $pizzaButtonCounter = $(`<span class="button_counter">0</span>`)
                 const $pizzaButton = $(`<button class="block-btnPrice__button">Добавити</button>`)
 
-
                 typeNames.forEach((typeName, index) => {
                     const $pizzaType = $(`<li class="type__settings">${typeName}</li>`);
                     if (index === 0 || typeName === pizza.types[0]) {
@@ -70,7 +69,6 @@ let currentCategoryIndex = null;
                     totalCounter = parseInt(localStorage.getItem('totalCounter'));
                     totalPrice = parseInt(localStorage.getItem('totalPrice'));
 
-                    // Оновлення елементів HTML зі значеннями
                     $('.button__count').text(totalCounter);
                     $('.button__price').text(totalPrice);
                 }
@@ -90,7 +88,7 @@ let currentCategoryIndex = null;
                     if (onTotalCounterChange) {
                         onTotalCounterChange(totalCounter, totalPrice);
                     }
-                    addToBasket(pizza,onTotalCounterChange)
+                    addToBasket(pizza, onTotalCounterChange)
                 })
 
                 $pizzaBlockPrice.append($pizzaPrice, $pizzaButton);
@@ -105,6 +103,7 @@ let currentCategoryIndex = null;
             }
         })
     }
+
     sortCategory()
 })();
 

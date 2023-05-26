@@ -1,4 +1,4 @@
-export function addToBasket(pizza, callback) {
+export function addToBasket(pizza) {
     const basket = JSON.parse(localStorage.getItem('basket')) || [];
     const existingPizza = basket.find((item) => item.id === pizza.id)
 
@@ -11,13 +11,14 @@ export function addToBasket(pizza, callback) {
 
     localStorage.setItem('basket', JSON.stringify(basket));
 }
-function deletePizzaFromBasket(index) {
-        const basket = JSON.parse(localStorage.getItem('basket')) || [];
-        basket.splice(index, 1); // Видаляємо піцу з масиву кошика за допомогою методу splice
-        localStorage.setItem('basket', JSON.stringify(basket)); // Оновлюємо вміст localStorage з оновленим масивом піць
-    }
 
-    function renderBasketItems(basket) {
+function deletePizzaFromBasket(index) {
+    const basket = JSON.parse(localStorage.getItem('basket')) || [];
+    basket.splice(index, 1);
+    localStorage.setItem('basket', JSON.stringify(basket));
+}
+
+function renderBasketPizza(basket) {
     const $basketContainer = $('.block__content-basket');
     basket.forEach((pizza, index) => {
         const $basketBlock = $('<div class="content-basket__block-basket"></div>');
@@ -39,6 +40,5 @@ function deletePizzaFromBasket(index) {
     });
 }
 
-// Приклад виклику функції з відображенням піц в корзині
 const basket = JSON.parse(localStorage.getItem('basket')) || [];
-renderBasketItems(basket);
+renderBasketPizza(basket);
