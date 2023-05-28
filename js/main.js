@@ -9,6 +9,8 @@ let totalCounter = 0;
 let totalPrice = 0;
 let onTotalCounterChange = null;
 let currentCategoryIndex = null;
+let currentSortType = null;
+
 (async function () {
     const product = await getData();
     const pizzaContainer = $('.main__container-content');
@@ -19,6 +21,10 @@ let currentCategoryIndex = null;
         const $sortOption = (`<option value="${sortName}">${sortName}</option>`);
         $sortBlock.append($sortOption);
     })
+    $sortBlock.on('change', function() {
+        currentSortType = $(this).val(); // Оновити обраний тип сортування
+        sortCategory();
+    });
     categories.map((category, index) => {
         const $categoriesList = $(`<li class="pizza-categories__type">${category}</li>`);
         $categoriesBlock.append($categoriesList);
@@ -32,7 +38,20 @@ let currentCategoryIndex = null;
 
     function sortCategory() {
         pizzaContainer.empty();
-        product.map(pizza => {
+
+        let sortedProducts = [];
+
+        if (currentSortType === 'популярності') {
+            sortedProducts = product.sort((a, b) => b.rating - a.rating);
+        } else if (currentSortType === 'ціні') {
+            sortedProducts = product.sort((a, b) => a.price - b.price);
+        } else if (currentSortType === 'алфавіту') {
+            sortedProducts = product.sort((a, b) => a.title.localeCompare(b.title));
+        } else {
+            sortedProducts = product; // Залишити без змін, якщо не обрано жодного типу сортування
+        }
+
+        sortedProducts.map(pizza => {
             if (currentCategoryIndex === null || categories[currentCategoryIndex] === 'Всі' || pizza.category === currentCategoryIndex) {
                 const $pizzaBlock = $('<div class="container-content__pizza-block"></div>');
                 const $blockTypeSize = $('<div class="pizza-block__block-typeSize"></div>')
@@ -69,8 +88,8 @@ let currentCategoryIndex = null;
                     totalCounter = parseInt(localStorage.getItem('totalCounter'));
                     totalPrice = parseInt(localStorage.getItem('totalPrice'));
 
-                    $('.button__count').text(totalCounter);
-                    $('.button__price').text(totalPrice);
+                    $('.button__count').text(`${totalCounter} шт`);
+                    $('.button__price').text(`${totalPrice} $`);
                 }
                 $pizzaButton.on('click', function () {
                     const count = parseInt($pizzaButtonCounter.text());
@@ -88,7 +107,7 @@ let currentCategoryIndex = null;
                     if (onTotalCounterChange) {
                         onTotalCounterChange(totalCounter, totalPrice);
                     }
-                    addToBasket(pizza, onTotalCounterChange)
+                    addToBasket(pizza)
                 })
 
                 $pizzaBlockPrice.append($pizzaPrice, $pizzaButton);
@@ -103,10 +122,16 @@ let currentCategoryIndex = null;
             }
         })
     }
-
     sortCategory()
 })();
 
 export function setTotalCounterChangeCallback(callback) {
     onTotalCounterChange = callback;
+}
+export function getTotalCounter() {
+    return parseInt(localStorage.getItem('totalCounter')) || 0;
+}
+
+export function getTotalPrice() {
+    return parseInt(localStorage.getItem('totalPrice')) || 0;
 }

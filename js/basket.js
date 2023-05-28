@@ -1,3 +1,14 @@
+import {getTotalCounter, getTotalPrice} from "./main.js";
+
+function updateBasketInfo() {
+    const basket = JSON.parse(localStorage.getItem('basket')) || [];
+    const totalPrice = getTotalPrice();
+    const totalCounter = getTotalCounter();
+    $('.price__text').text(` ${totalPrice} $`);
+    $('.count__text').text(` ${totalCounter} шт`);
+    renderBasketPizza(basket);
+}
+
 export function addToBasket(pizza) {
     const basket = JSON.parse(localStorage.getItem('basket')) || [];
     const existingPizza = basket.find((item) => item.id === pizza.id)
@@ -8,14 +19,34 @@ export function addToBasket(pizza) {
         pizza.quantity = 1;
         basket.push(pizza);
     }
-
     localStorage.setItem('basket', JSON.stringify(basket));
 }
 
+function deleteAllPizzas() {
+    localStorage.removeItem('basket');
+    localStorage.removeItem('totalCounter');
+    localStorage.removeItem('totalPrice');
+}
+
+$('.header__clear-basket').on('click', function () {
+    deleteAllPizzas()
+    updateBasketInfo()
+    location.reload()
+})
+
 function deletePizzaFromBasket(index) {
     const basket = JSON.parse(localStorage.getItem('basket')) || [];
+    const pizza = basket[index]
     basket.splice(index, 1);
     localStorage.setItem('basket', JSON.stringify(basket));
+    const totalCounter = getTotalCounter();
+    const pizzaQuantity = pizza.quantity;
+    localStorage.setItem('totalCounter', totalCounter - pizzaQuantity);
+
+    const totalPrice = getTotalPrice();
+    const pizzaPrice = pizza.price * pizza.quantity;
+    localStorage.setItem('totalPrice', totalPrice - pizzaPrice);
+    updateBasketInfo()
 }
 
 function renderBasketPizza(basket) {
@@ -39,6 +70,5 @@ function renderBasketPizza(basket) {
         $basketContainer.append($basketBlock);
     });
 }
-
 const basket = JSON.parse(localStorage.getItem('basket')) || [];
-renderBasketPizza(basket);
+updateBasketInfo();
