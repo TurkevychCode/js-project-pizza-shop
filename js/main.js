@@ -22,7 +22,7 @@ let currentSortType = null;
         $sortBlock.append($sortOption);
     })
     $sortBlock.on('change', function() {
-        currentSortType = $(this).val(); // Оновити обраний тип сортування
+        currentSortType = $(this).val();
         sortCategory();
     });
     categories.map((category, index) => {
@@ -48,7 +48,7 @@ let currentSortType = null;
         } else if (currentSortType === 'алфавіту') {
             sortedProducts = product.sort((a, b) => a.title.localeCompare(b.title));
         } else {
-            sortedProducts = product; // Залишити без змін, якщо не обрано жодного типу сортування
+            sortedProducts = product;
         }
 
         sortedProducts.map(pizza => {
