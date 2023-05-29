@@ -103,7 +103,10 @@ let onTotalCounterChange = null;
                     })
                     $pizzaSizes.append($pizzaSize)
                 });
-                //////////////////////////
+                ////////////////////////// перевіряю чи в localstorage присутні totalCounter та totalPrice
+                ////////////////////////// якщо так то оновлюю значення з localstorage
+                ////////////////////////// за допомогою parseInt перетворюю в цілі числа
+                ////////////////////////// відповідно нище задаю значення потрібним мені блокам
                 if (localStorage.getItem('totalCounter') && localStorage.getItem('totalPrice')) {
                     totalCounter = parseInt(localStorage.getItem('totalCounter'));
                     totalPrice = parseInt(localStorage.getItem('totalPrice'));
@@ -127,7 +130,9 @@ let onTotalCounterChange = null;
                     localStorage.setItem('totalCounter', totalCounter);
                     localStorage.setItem('totalPrice', `${totalPrice} $`);
 
-                    // Викликаю функцію зворотного виклику з оновленим значенням totalCounter
+                    // Викликаю функцію зворотного виклику з оновленим значенням totalCounter та totalPrice
+                    // функція працює так: у випадку якщо змінюється totalCounter,totalPrice викликається функція
+                    // setTotalCounterChangeCallback яка передає колбек.
                     if (onTotalCounterChange) {
                         onTotalCounterChange(totalCounter, totalPrice);
                     }
@@ -145,14 +150,15 @@ let onTotalCounterChange = null;
     }
     pizzas()
 })();
-
+// експортую колбек функцію з параметром onTotalCounterChange який має в собі тотальну ціну та лічильник
 export function setTotalCounterChangeCallback(callback) {
     onTotalCounterChange = callback;
 }
+// отримую значення totalCounter та totalPrice з localstorage конвертую його в ціле число за допомогою parseInt
+// якщо числа не існує або ж це число не можна перетворити в ціле то повертаю 0, та експортую ці дані)
 export function getTotalCounter() {
     return parseInt(localStorage.getItem('totalCounter')) || 0;
 }
-
 export function getTotalPrice() {
     return parseInt(localStorage.getItem('totalPrice')) || 0;
 }
