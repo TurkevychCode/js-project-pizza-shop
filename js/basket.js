@@ -92,5 +92,4 @@ function renderBasketPizza(basket) {
         $basketContainer.append($basketBlock);
     });
 }
-const basket = JSON.parse(localStorage.getItem('basket')) || [];
 updateBasketInfo();
