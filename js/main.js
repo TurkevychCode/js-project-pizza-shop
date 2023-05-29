@@ -24,6 +24,7 @@ let onTotalCounterChange = null;
         const $sortOption = (`<option value="${sortName}">${sortName}</option>`);
         $sortBlock.append($sortOption);
     })
+    ///////////////////////// тут отримую в змінну currentSortType значення з блоку sortBlock
     $sortBlock.on('change', function() {
         currentSortType = $(this).val();
         pizzas();
