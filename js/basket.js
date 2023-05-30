@@ -38,6 +38,7 @@ function deleteAllPizzas() {
     localStorage.removeItem('totalCounter');
     localStorage.removeItem('totalPrice');
 }
+
 // тут я встановлюю на блок з класом header__clear-basket функцію на click яка викликає функцію
 // deleteAllPizzas яка видаляє дані
 // та функцію updateBasketInfo яка оновлює дані в кошику

@@ -24,11 +24,13 @@ let onTotalCounterChange = null;
         const $sortOption = (`<option value="${sortName}">${sortName}</option>`);
         $sortBlock.append($sortOption);
     })
+
     ///////////////////////// тут отримую в змінну currentSortType значення з блоку sortBlock
     $sortBlock.on('change', function() {
         currentSortType = $(this).val();
         pizzas();
     });
+
     ///////////////////////// Отримую масив categories додаю його на сторінку
     ///////////////////////// та вішаю функцію на click яка добавляє клас active
     categories.map((category, index) => {
@@ -62,6 +64,7 @@ let onTotalCounterChange = null;
 
         ///////////////////////// блок піци який відображається на сторінці
         sortedProducts.map(pizza => {
+
             /////////////////////////виконую перевірку на категорії у випадку
             ///////////////////////// якщо index категорії null тоді відображаються всі піци
             ///////////////////////// також якщо categories[index] дорівнює 'Всі' також відобразяться всі піци
@@ -92,6 +95,7 @@ let onTotalCounterChange = null;
                     });
                     $pizzaTypes.append($pizzaType);
                 });
+
                 ///////////////////////// тут з серверу я отримую розмріри піци та добавляю їх на сторінку
                 ///////////////////////// також вішаю функцію click яка добавляє клас active
                 pizza.sizes.forEach((sizeNumber, index) => {
@@ -104,6 +108,7 @@ let onTotalCounterChange = null;
                     })
                     $pizzaSizes.append($pizzaSize)
                 });
+
                 ////////////////////////// перевіряю чи в localstorage присутні totalCounter та totalPrice
                 ////////////////////////// якщо так то оновлюю значення з localstorage
                 ////////////////////////// за допомогою parseInt перетворюю в цілі числа
@@ -115,6 +120,7 @@ let onTotalCounterChange = null;
                     $('.button__count').text(`${totalCounter} шт`);
                     $('.button__price').text(`${totalPrice} $`);
                 }
+
                 ////////////////////////// кнопка якій я вішаю функцію при click
                 ////////////////////////// 1. яка дістає значення з лічильника кнопки та при кліку збільшує на 1
                 ////////////////////////// 2. збільшує загальний лічильник на 1
@@ -140,6 +146,7 @@ let onTotalCounterChange = null;
                     ////////////////////////// добавляю піцу в кошик
                     addToBasket(pizza)
                 })
+
                 ///////////////////////// тут відбувається вкладення блоків в самій карточці з піцою
                 $pizzaBlockPrice.append($pizzaPrice, $pizzaButton);
                 $blockTypeSize.append($pizzaTypes);
